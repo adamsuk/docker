@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  k8_demo:
+    --rm
+    --name secretless-demo-client
+    -p 
+      - 30303:8001
+      - 3000:3000
+    -v 
+      /var/run/docker.sock:/var/run/docker.sock
+    -it diverdane/secretless-k8s-demo:v1.17.0

@@ -1,0 +1,19 @@
+version: '3.7' 
+services: 
+  minecraft: 
+    image: desktopcontainers/raspberrypi 
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
+    ports:
+      - 2222:2222
+      - 81:80
+      - 443:443
+      #- "4711:25565" 
+    #environment:
+    #  EULA: "TRUE"
+    privileged: true
+    #volumes:
+    #  - ./:/images
+    #  #- ./:/opt/app
+    #command: ./run.sh images/2020-08-20-raspios-buster-armhf-full.img /bin/sh

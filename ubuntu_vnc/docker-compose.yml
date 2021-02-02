@@ -1,0 +1,10 @@
+version: '3'
+services:
+  # Ubuntu VNC
+  ubuntu-vnc: 
+    container_name: ubuntu-vnc 
+    image: dorowu/ubuntu-desktop-lxde-vnc:focal
+    volumes:
+      - /media/SmallSlave/docker/ubuntu_vnc/config:/dev/shm
+    ports:
+      - 6080:80

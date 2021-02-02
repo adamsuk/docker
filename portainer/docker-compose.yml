@@ -1,0 +1,16 @@
+version: "3.6"
+services:
+
+  portainer:
+    image: portainer/portainer:latest
+    container_name: portainer
+    restart: always
+    command: -H unix:///var/run/docker.sock
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /media/SmallSlave/docker/portainer/data:/data
+      - /media/SmallSlave/docker/shared:/shared
+    environment:
+      - TZ=${TZ}

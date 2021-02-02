@@ -1,0 +1,29 @@
+version: "3.6"
+services:
+
+  plexms:
+    container_name: plexms
+    restart: always
+    network_mode: host
+    ports:
+      - 32400:32400
+      - 32400:32400/udp
+      - 32469:32469
+      - 32469:32469/udp
+      - 5353:5353/udp
+      - 1900:1900/udp
+    image: linuxserver/plex:latest
+    volumes:
+      - /media/SmallSlave/docker/plexms:/config
+      - /media/BigSlave/Movies:/movies
+      - /media/BigSlave/Music:/music
+      - /media/BigSlave/Photos:/photos
+      - /media/BigSlave/TV:/TV1
+      - /media/Slave/TV:/TV2
+      - /media/SmallSlave/Users:/user_data
+    env_file:
+      - docker.env
+    environment:
+      - VERSION=docker
+      - PUID={PUID}
+      - PGID={PGID}

@@ -1,0 +1,32 @@
+version: '3'
+ 
+services: 
+  db: 
+    image: mariadb 
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW 
+    restart: always 
+    volumes:
+      - /media/SmallSlave/docker/nextcloud/db:/var/lib/mysql 
+    environment: 
+      - MYSQL_ROOT_PASSWORD=nextcloud
+    env_file:
+      - db.env
+ 
+  app: 
+    image: nextcloud:apache 
+    restart: always 
+    ports: 
+      - 8200:80 
+    volumes:
+      - /media/SmallSlave/docker/nextcloud/nextcloud:/var/www/html 
+      - /media/SmallSlave/Users:/Users
+    environment: 
+      - MYSQL_HOST=db 
+    env_file:
+      - db.env 
+    depends_on: 
+      - db
+ 
+volumes: 
+  db: 
+  nextcloud:

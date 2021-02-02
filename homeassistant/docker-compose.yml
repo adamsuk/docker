@@ -1,0 +1,12 @@
+version: '3' 
+
+services:
+  homeassistant:
+    container_name: home-assistant 
+    image: homeassistant/home-assistant:stable 
+    volumes:
+      - /media/SmallSlave/docker/homeassistant/homeassistant-:/config
+    environment: 
+      - TZ=Europe/London
+    restart: always
+    network_mode: host
