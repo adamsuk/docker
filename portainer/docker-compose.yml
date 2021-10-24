@@ -14,3 +14,5 @@ services:
       - /media/SmallSlave/docker/shared:/shared
     environment:
       - TZ=${TZ}
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"

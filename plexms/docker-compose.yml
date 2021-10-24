@@ -27,3 +27,5 @@ services:
       - VERSION=docker
       - PUID={PUID}
       - PGID={PGID}
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
