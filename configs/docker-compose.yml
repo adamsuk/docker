@@ -17,6 +17,8 @@ services:
       - 2202:2202
       - 2203:2203
     restart: unless-stopped
+    networks:
+      - swag_proxy
 
   calibre:
     image: linuxserver/calibre:latest
@@ -31,3 +33,7 @@ services:
       - 8080:8080
       - 8081:8081
     restart: unless-stopped
+
+networks:
+  swag_proxy:
+    external: true

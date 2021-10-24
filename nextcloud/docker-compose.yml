@@ -1,33 +1,23 @@
 version: '3'
- 
-services: 
-  db: 
-    image: mariadb 
-    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW 
-    restart: always 
-    volumes:
-      - /media/SmallSlave/docker/nextcloud/db:/var/lib/mysql 
-    environment: 
-      - MYSQL_ROOT_PASSWORD=nextcloud
-    env_file:
-      - db.env
- 
-  app: 
-    image: nextcloud:apache 
-    restart: always 
-    #user: "1000"
-    ports: 
-      - 8200:80 
-    volumes:
-      - /media/SmallSlave/docker/nextcloud/nextcloud:/var/www/html 
-      - /media/SmallSlave/Users:/Users
-    environment: 
-      - MYSQL_HOST=db 
-    env_file:
-      - db.env 
-    depends_on: 
-      - db
- 
-volumes: 
-  db: 
+
+services:
   nextcloud:
+    image: lscr.io/linuxserver/nextcloud 
+    container_name: nextcloud
+    environment:
+      - PUID=1000 
+      - PGID=1000 
+      - TZ=Europe/London 
+    volumes:
+      - /media/SmallSlave/docker/nextcloud/config:/config
+      - /media/SmallSlave/docker/nextcloud/data:/data
+      - /media/SmallSlave/Users:/Users
+    ports:
+      - 8200:443
+    restart: unless-stopped
+    networks:
+      - swag_proxy
+
+networks:
+  swag_proxy:
+    external: true
