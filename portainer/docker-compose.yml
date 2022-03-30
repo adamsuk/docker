@@ -16,3 +16,9 @@ services:
       - TZ=${TZ}
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - swag_proxy
+
+networks:
+  swag_proxy:
+    external: true

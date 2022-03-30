@@ -1,0 +1,23 @@
+---
+version: "2.1"
+services: 
+  grav:
+    image: lscr.io/linuxserver/grav 
+    container_name: grav 
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - ./config:/config
+    ports:
+      - 8011:80
+    restart: unless-stopped
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - swag_proxy
+
+networks:
+  swag_proxy:
+    external: true
