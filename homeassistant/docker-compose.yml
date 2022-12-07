@@ -3,10 +3,14 @@ version: '3'
 services:
   homeassistant:
     container_name: home-assistant 
-    image: homeassistant/home-assistant:stable 
+    image: lscr.io/linuxserver/homeassistant:latest
     volumes:
-      - /media/SmallSlave/docker/homeassistant/homeassistant-:/config
+      - ./config:/config
     environment: 
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/London
-    restart: always
+    restart: unless-stopped
     network_mode: host
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
