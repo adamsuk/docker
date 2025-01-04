@@ -9,6 +9,8 @@ services:
       - ./mosquitto/log:/mosquitto/log
     ports:
       - 1883:1883
+    networks:
+      - homeassistant_bridge
 
   grott:
     container_name: grott
@@ -19,3 +21,7 @@ services:
     ports:
       - 5279:5279
     restart: unless-stopped
+
+networks:
+  homeassistant_bridge:
+    external: true

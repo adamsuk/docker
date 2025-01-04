@@ -17,16 +17,16 @@ services:
       - DNSPLUGIN=cloudflare
       #- PROPAGATION= #optional
       #- DUCKDNSTOKEN= #optional
-      #- EMAIL= #optional
-      #- ONLY_SUBDOMAINS=true
+      - EMAIL=me@sradams.co.uk
+      - ONLY_SUBDOMAINS=true
       #- EXTRA_DOMAINS= #optional
       #- STAGING=false #optional
       #- MAXMINDDB_LICENSE_KEY= #optional
     volumes:
-      - /media/SmallSlave/docker/swag/config:/config
+      - ./config:/config
     ports:
       - 443:443
-      #- 80:80 #optional
+      - 80:80 #optional
     restart: unless-stopped
     networks:
       - proxy

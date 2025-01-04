@@ -17,8 +17,8 @@ services:
     restart: unless-stopped
     networks:
       - swag_proxy
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+    #labels:
+    #  - "com.centurylinklabs.watchtower.enable=true"
 
 networks:
   swag_proxy:

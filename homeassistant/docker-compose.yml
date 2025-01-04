@@ -11,6 +11,15 @@ services:
       - PGID=1000
       - TZ=Europe/London
     restart: unless-stopped
-    network_mode: host
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+    #network_mode: host
+    #labels:
+    #  - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - swag_proxy
+      - bridge
+
+networks:
+  swag_proxy:
+    external: true
+  bridge:
+    driver: bridge
