@@ -1,0 +1,25 @@
+version: "3.6"
+services:
+
+  ubooquity:
+    image: linuxserver/ubooquity:latest
+    container_name: ubooquity
+    environment:
+      - PUID={PUID}
+      - PGID={PGID}
+      - TZ=Europe/London
+      - MAXMEM=1024
+    volumes:
+      - ./config:/config
+      - /media/BigSlave/Books/Books:/books
+      - /media/BigSlave/Books/Comics:/comics
+    ports:
+      - 2202:2202
+      - 2203:2203
+    restart: unless-stopped
+    networks:
+      - swag_proxy
+
+networks:
+  swag_proxy:
+    external: true

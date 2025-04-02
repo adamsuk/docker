@@ -1,4 +1,4 @@
-version: '3'
+version: '3.3'
 
 services:
   swag:
@@ -12,7 +12,7 @@ services:
       - TZ=Europe/London
       - URL=sradams.co.uk
       - VALIDATION=dns
-      - SUBDOMAINS=wildcard
+      - SUBDOMAINS=homeassistant
       #- CERTPROVIDER= #optional
       - DNSPLUGIN=cloudflare
       #- PROPAGATION= #optional
@@ -26,10 +26,12 @@ services:
       - ./config:/config
     ports:
       - 443:443
-      - 80:80 #optional
+      #- 80:80 #optional
     restart: unless-stopped
     networks:
       - proxy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 networks:
   proxy:

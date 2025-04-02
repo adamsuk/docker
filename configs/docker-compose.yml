@@ -1,27 +1,6 @@
 version: "3.6"
 services:
 
-  ubooquity:
-    image: linuxserver/ubooquity:latest
-    container_name: ubooquity
-    environment:
-      - PUID={PUID}
-      - PGID={PGID}
-      - TZ=Europe/London
-      - MAXMEM=1024
-    volumes:
-      - /media/BigSlave/Books/ubooquity:/config
-      - /media/BigSlave/Books/Books:/books
-      - /media/BigSlave/Books/Comics:/comics
-    ports:
-      - 2202:2202
-      - 2203:2203
-    restart: unless-stopped
-    networks:
-      - swag_proxy
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
-
   calibre:
     image: linuxserver/calibre:latest
     container_name: calibre
@@ -35,7 +14,3 @@ services:
       - 8080:8080
       - 8081:8081
     restart: unless-stopped
-
-networks:
-  swag_proxy:
-    external: true

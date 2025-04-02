@@ -2,7 +2,7 @@ version: '3'
 
 services:
   homeassistant:
-    container_name: home-assistant 
+    container_name: homeassistant
     image: lscr.io/linuxserver/homeassistant:latest
     volumes:
       - ./config:/config
@@ -11,15 +11,17 @@ services:
       - PGID=1000
       - TZ=Europe/London
     restart: unless-stopped
-    #network_mode: host
+    network_mode: host
     #labels:
     #  - "com.centurylinklabs.watchtower.enable=true"
-    networks:
-      - swag_proxy
-      - bridge
+    extra_hosts:
+      - localhost:192.168.86.250
+    #networks:
+    #  - swag_proxy
+    #  - bridge
 
-networks:
-  swag_proxy:
-    external: true
-  bridge:
-    driver: bridge
+#networks:
+#  swag_proxy:
+#    external: true
+#  bridge:
+#    driver: bridge
