@@ -22,6 +22,8 @@ services:
     ports:
       - 5279:5279
     restart: unless-stopped
+    #labels:
+    #  - "com.centurylinklabs.watchtower.enable=true"
 
 networks:
   homeassistant_bridge:
