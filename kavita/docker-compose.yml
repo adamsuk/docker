@@ -2,26 +2,24 @@ version: "3.6"
 services:
 
   ubooquity:
-    image: linuxserver/ubooquity:latest
-    container_name: ubooquity
+    image: lscr.io/linuxserver/kavita:latest
+    container_name: kavita
     environment:
       - PUID={PUID}
       - PGID={PGID}
       - TZ=Europe/London
-      - MAXMEM=2048
     volumes:
       - ./config:/config
       - /media/BigSlave/Books/Books:/books
       - /media/BigSlave/Books/Comics:/comics
     ports:
-      - 2202:2202
-      - 2203:2203
+      - 5000:5000
     restart: unless-stopped
-    networks:
-      - swag_proxy
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+    #networks:
+    #  - swag_proxy
+    #labels:
+    #  - "com.centurylinklabs.watchtower.enable=true"
 
-networks:
-  swag_proxy:
-    external: true
+#networks:
+#  swag_proxy:
+#    external: true

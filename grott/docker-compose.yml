@@ -2,7 +2,7 @@ version: "3"
 services:
   grott:
     container_name: grott
-    image: ledidobe/grott:2.7.8
+    image: ledidobe/grott:2.8.3
     volumes:
       - ./grott/output:/tmp/grottlog/
       - ./grott/config/grott.ini:/app/grott.ini
@@ -11,3 +11,9 @@ services:
     restart: unless-stopped
     #labels:
     #  - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - homeassistant_bridge
+
+networks:
+  homeassistant_bridge:
+    external: true
