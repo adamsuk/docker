@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  eufy-ws:
+    image: bropat/eufy-security-ws 
+    container_name: eufy-ws
+    network_mode: "bridge" 
+    volumes:
+        - /volume2/docker/eufy-security-ws/data:/data
+    ports: 
+      - "3000:3000" 
+    env_file:
+      - .env

@@ -1,6 +1,4 @@
-version: "3.6"
 services:
-
   portainer:
     image: portainer/portainer:latest
     container_name: portainer
@@ -10,15 +8,14 @@ services:
       - "9000:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /media/SmallSlave/docker/portainer/data:/data
-      - /media/SmallSlave/docker/shared:/shared
+      - ./data:/data
     environment:
-      - TZ=${TZ}
+      - TZ="Europe/London"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
-    networks:
-      - swag_proxy
+#    networks:
+#      - swag_proxy
 
-networks:
-  swag_proxy:
-    external: true
+#networks:
+#  swag_proxy:
+#    external: true

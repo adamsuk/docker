@@ -1,12 +1,10 @@
-version: '3' 
-
 services:
   homeassistant:
     container_name: homeassistant
     image: lscr.io/linuxserver/homeassistant:latest
     volumes:
       - ./config:/config
-    environment: 
+    environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
@@ -16,12 +14,3 @@ services:
     #  - "com.centurylinklabs.watchtower.enable=true"
     extra_hosts:
       - localhost:192.168.86.250
-    #networks:
-    #  - swag_proxy
-    #  - bridge
-
-#networks:
-#  swag_proxy:
-#    external: true
-#  bridge:
-#    driver: bridge

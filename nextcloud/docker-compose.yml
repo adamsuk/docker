@@ -1,25 +1,23 @@
-version: '3'
-
 services:
   nextcloud:
-    image: lscr.io/linuxserver/nextcloud 
+    image: lscr.io/linuxserver/nextcloud
     container_name: nextcloud
     environment:
-      - PUID=1000 
-      - PGID=1000 
-      - TZ=Europe/London 
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
     volumes:
-      - /media/SmallSlave/docker/nextcloud/config:/config
-      - /media/SmallSlave/docker/nextcloud/data:/data
-      - /media/SmallSlave/Users:/Users
+      - /media/small_boi/docker/nextcloud/config:/config
+      - /media/small_boi/docker/nextcloud/data:/data
+      - /media/small_boi/Users:/Users
     ports:
       - 8200:443
     restart: unless-stopped
-    networks:
-      - swag_proxy
+    # networks:
+    # - swag_proxy
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
 
-networks:
-  swag_proxy:
-    external: true
+#networks:
+#  swag_proxy:
+#    external: true

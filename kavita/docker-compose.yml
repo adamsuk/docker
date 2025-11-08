@@ -1,7 +1,6 @@
-version: "3.6"
 services:
 
-  ubooquity:
+  kavita:
     image: lscr.io/linuxserver/kavita:latest
     container_name: kavita
     environment:
@@ -10,8 +9,8 @@ services:
       - TZ=Europe/London
     volumes:
       - ./config:/config
-      - /media/BigSlave/Books/Books:/books
-      - /media/BigSlave/Books/Comics:/comics
+      - /media/big_boi/Books/Books:/books
+      - /media/big_boi/Books/Comics:/comics
     ports:
       - 5000:5000
     restart: unless-stopped

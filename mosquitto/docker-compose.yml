@@ -1,4 +1,3 @@
-version: "3"
 services:
   mosquitto:
     container_name: mosquitto
@@ -10,9 +9,4 @@ services:
     ports:
       - 1883:1883
     restart: unless-stopped
-    networks:
-      - homeassistant_bridge
-
-networks:
-  homeassistant_bridge:
-    external: true
+    network_mode: host

@@ -1,4 +1,3 @@
-version: "3"
 services:
   grott:
     container_name: grott
@@ -9,11 +8,6 @@ services:
     ports:
       - 5279:5279
     restart: unless-stopped
+    network_mode: host
     #labels:
     #  - "com.centurylinklabs.watchtower.enable=true"
-    networks:
-      - homeassistant_bridge
-
-networks:
-  homeassistant_bridge:
-    external: true
