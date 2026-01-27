@@ -1,0 +1,17 @@
+services:
+  webtop:
+    image: lscr.io/linuxserver/webtop:latest
+    container_name: webtop
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - ./config:/config
+      - /media:/media # for mapping drive based files
+      - /var/run/docker.sock:/var/run/docker.sock # enable controlling host docker instance
+    ports:
+      - 3010:3000
+      - 3011:3001
+    shm_size: "1gb"
+    restart: unless-stopped

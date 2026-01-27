@@ -14,13 +14,13 @@ services:
       - 1900:1900/udp
     image: linuxserver/plex:latest
     volumes:
-      - /media/SmallSlave/docker/plexms:/config
-      - /media/BigSlave/Movies:/movies
-      - /media/BigSlave/Music:/music
-      - /media/BigSlave/Photos:/photos
-      - /media/BigSlave/TV:/TV1
-      - /media/Slave/TV:/TV2
-      - /media/SmallSlave/Users:/user_data
+      - /media/small_boi/docker/plexms:/config
+      - /media/big_boi/Movies:/movies
+      - /media/big_boi/Music:/music
+      - /media/big_boi/Photos:/photos
+      - /media/big_boi/TV:/TV1
+      - /media/full_boi/TV:/TV2
+      - /media/small_boi/Users:/user_data
     env_file:
       - docker.env
     environment:
