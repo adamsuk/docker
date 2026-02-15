@@ -1,0 +1,18 @@
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    command: tunnel run
+    volumes:
+      - ./tunnel:/etc/cloudflared
+    restart: unless-stopped
+    network_mode: host
+    #networks:
+    #  - cloudflared
+
+#networks:
+#  cloudflared:
+#    name: cloudflared
+#    # external: true
