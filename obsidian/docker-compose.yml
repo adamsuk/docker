@@ -1,0 +1,24 @@
+services:
+  obsidian:
+    image: lscr.io/linuxserver/obsidian:latest
+    container_name: obsidian
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - ./config:/config
+      - ./vaults:/vaults
+    ports:
+      - 3020:3000
+      - 3021:3001
+    shm_size: "1gb"
+    restart: unless-stopped
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    #networks:
+    #  - swag_proxy
+
+#networks:
+#  swag_proxy:
+#    external: true
