@@ -1,13 +1,21 @@
 services:
   grott:
     container_name: grott
-    image: ledidobe/grott:2.8.3
+    image: ledidobe/grottserver:2.8.3
     volumes:
       - ./grott/output:/tmp/grottlog/
       - ./grott/config/grott.ini:/app/grott.ini
     ports:
       - 5279:5279
+      - 5782:5782
     restart: unless-stopped
-    network_mode: host
+    environment:
+      - gmode=proxy
+      - ggrowattip=127.0.0.1
+      - ggrowattport=5781
+      - gverbose=True
+      - ginvtype=sph
+      - gmqttip=192.168.86.250
+    # network_mode: host
     #labels:
     #  - "com.centurylinklabs.watchtower.enable=true"
