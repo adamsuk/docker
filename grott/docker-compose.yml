@@ -5,11 +5,14 @@ services:
     volumes:
       - ./grott/output:/tmp/grottlog/
       - ./grott/config/grott.ini:/app/grott.ini
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     ports:
       - 5279:5279
       - 5782:5782
     restart: unless-stopped
     environment:
+      - TZ=Europe/London
       - gmode=proxy
       - ggrowattip=127.0.0.1
       - ggrowattport=5781
