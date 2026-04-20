@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    volumes:
+      - ./open-webui:/app/backend/data
+    ports:
+      - 8089:8080
+    environment: # https://docs.openwebui.com/getting-started/env-configuration#default_models
+      #- WEBUI_AUTH=False
+      #- WEBUI_NAME=valiantlynx AI
+      - WEBUI_URL=http://localhost:8080
+      - WEBUI_SECRET_KEY=t0p-s3cr3t
+    #extra_hosts:
+    #  - host.docker.internal:host-gateway
+    restart: unless-stopped
+    networks:
+      - openui-docker
+
+  mcpo:
+    image: ghcr.io/open-webui/mcpo:main
+    container_name: mcpo
+    ports:
+      - 8088:8000
+    volumes:
+      - ./mcpo-config.json:/app/config/config.json:ro
+    command: mcpo --config /app/config/config.json --api-key  "ToP-SeCReT"
+    restart: unless-stopped
+    networks:
+      - openui-docker
+
+networks:
+  openui-docker:
+    external: false
