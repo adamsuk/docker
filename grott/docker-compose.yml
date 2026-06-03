@@ -1,18 +1,14 @@
 services:
   grott:
     container_name: grott
-    #image: ledidobe/grottserver:2.8.3
     image: ledidobe/grottserver:beta
     volumes:
       - ./grott/output:/tmp/grottlog/
       - ./grott/config/grott.ini:/app/grott.ini
       - ./grott/config/grott.ini:/grott.ini
-      #- ./grottext.py:/app/grottext.py
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     ports:
-      #- 5279:5281
-      #- 5280:5782
       - 5279:5279
       - 5781:5781
       - 5782:5782
@@ -20,27 +16,6 @@ services:
     environment:
       - TZ=Europe/London
       - PYTHONUNBUFFERED=1
-      # Core Engine Settings (Strictly lowercase 'g' prefixes)
-      #- gmode=server
-      #- gverbose=True
-      #- ginvtype=sph
-      #- gdecrypt=True
-      #- gblockcmd=True
-      #- gnoipf=True
-      #- gminrecl=20
-      #- ggrowattip=127.0.0.1
-      #- ggrowattport=5781
-      # MQTT Broker Settings (Strictly lowercase 'g' prefixes)
-      #- gnomqtt=False
-      #- gmqttip=192.168.86.250
-      #- gmqttport=1883
-      #- gmqtttopic=energy/growatt
-      #- gmqttauth=False
-    #env_file:
-    #  - ./grott.env
+      - gblockcmd=True
+      - gincludeall=True
     network_mode: host
-    #labels:
-    #  - "com.centurylinklabs.watchtower.enable=true"
-    # FORCE COMMAND LINE OVERRIDE TO THE ENGINE
-    #command: ["python3", "grott.py", "-v", "-m", "server"]
-    #command: ["python3", "-u", "grottserver.py"]
