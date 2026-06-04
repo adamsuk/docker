@@ -1,0 +1,22 @@
+# Ignore everything
+*
+
+# But not these files...
+# at a single level
+!.gitignore
+!*/docker-compose.yml
+!*/Dockerfile
+!*/AGENTS.md
+!AGENTS.md
+!README.md
+!grott/grott/config/grott.ini
+
+# ...even if they are in subdirectories
+!*/
+
+/openvpn/**
+/transmission/**
+/portainer/**
+
+# not anything too nested
+*/*/*/*/
