@@ -1,0 +1,87 @@
+- My Apps:
+    - Open WebUI:
+        href: http://192.168.86.250:8089
+        icon: https://openwebui.com/favicon.png
+        description: AI Chat Interface
+    - Home Assistant:
+        href: http://192.168.86.250:8123
+        icon: home-assistant
+        description: Smart Home
+    - Portainer:
+        href: http://192.168.86.250:9000
+        icon: portainer
+        description: Container Management
+    - Nextcloud:
+        href: https://192.168.86.250:8200
+        icon: nextcloud
+        description: Cloud Storage
+    - ESPHome:
+        href: http://192.168.86.250:6052
+        icon: esphome
+        description: IoT Devices
+    - SWAG:
+        href: https://192.168.86.250
+        icon: nginx
+        description: Reverse Proxy
+    - Eufy Security:
+        href: http://192.168.86.250:3000
+        icon: mdi-camera-wireless-outline
+        description: Security Cameras
+    - Mosquitto:
+        href: http://192.168.86.250:1883
+        icon: mosquitto
+        description: MQTT Broker
+
+- Media:
+    - Plex:
+        href: http://192.168.86.250:32400/web
+        icon: plex
+        description: Movies & TV Shows
+    - Booklore:
+        href: http://192.168.86.250:6060
+        icon: booklore
+        description: Ebook Library
+    - Tautulli:
+        href: http://192.168.86.250:8181
+        icon: tautulli
+        description: Plex Analytics
+    - Sonarr:
+        href: http://192.168.86.250:8989
+        icon: sonarr
+        description: TV Show Manager
+
+- Infrastructure:
+    - Cloudflared:
+        href: http://192.168.86.250:8353
+        icon: cloudflare
+        description: Cloudflare Tunnel
+    - Watchtower:
+        href: http://192.168.86.250:8080
+        icon: watchtower
+        description: Auto Container Updates
+    - MariaDB:
+        href: http://192.168.86.250:3306
+        icon: https://mariadb.com/favicon.ico
+        description: Database Server
+    - Grott:
+        href: http://192.168.86.250:8123
+        icon: mdi-solar-power
+        description: Solar Data
+
+- Monitoring:
+    - Uptime Kuma:
+        href: http://192.168.86.250:3002
+        icon: uptime-kuma
+        description: Service Uptime & Status
+        widget:
+          type: uptimekuma
+          fields:
+            slug: home
+    - Netdata:
+        href: http://192.168.86.250:19999
+        icon: netdata
+        description: Historical System Charts
+    - Glances:
+        href: http://192.168.86.250:61208
+        icon: glances
+        description: Live System Metrics
