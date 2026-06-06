@@ -1,3 +1,11 @@
+# =============================================================================
+# Homepage Dashboard - Service Configuration
+# =============================================================================
+# See: https://gethomepage.dev/configs/services/
+
+# -----------------------------------------------------------------------------
+# My Apps - Main dashboard with all core services
+# -----------------------------------------------------------------------------
 - My Apps:
     - Open WebUI:
         href: http://192.168.86.250:8089
@@ -32,6 +40,9 @@
         icon: mosquitto
         description: MQTT Broker
 
+# -----------------------------------------------------------------------------
+# Media - Movies, TV shows, music & books
+# -----------------------------------------------------------------------------
 - Media:
     - Plex:
         href: http://192.168.86.250:32400/web
@@ -50,6 +61,9 @@
         icon: sonarr
         description: TV Show Manager
 
+# -----------------------------------------------------------------------------
+# Infrastructure - Management & system services
+# -----------------------------------------------------------------------------
 - Infrastructure:
     - Cloudflared:
         href: http://192.168.86.250:8353
@@ -68,6 +82,9 @@
         icon: mdi-solar-power
         description: Solar Data
 
+# -----------------------------------------------------------------------------
+# Monitoring - System metrics & historical charts
+# -----------------------------------------------------------------------------
 - Monitoring:
     - Uptime Kuma:
         href: http://192.168.86.250:3002
@@ -75,8 +92,7 @@
         description: Service Uptime & Status
         widget:
           type: uptimekuma
-          fields:
-            slug: home
+          slug: home
     - Netdata:
         href: http://192.168.86.250:19999
         icon: netdata
