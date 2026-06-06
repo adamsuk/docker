@@ -23,7 +23,7 @@ services:
       - docker.env
     environment:
       - VERSION=docker
-      - PUID={PUID}
-      - PGID={PGID}
+      - PUID=911
+      - PGID=1001
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
