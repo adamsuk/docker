@@ -1,6 +1,4 @@
-version: "3.6"
 services:
-
   plexms:
     container_name: plexms
     restart: always
