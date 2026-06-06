@@ -1,0 +1,18 @@
+services:
+  opencode-dev:
+    build: .
+    container_name: opencode_ssh_workspace
+    restart: unless-stopped
+    # Forward host port 2222 to the container's SSH port 22
+    ports:
+      - "2222:22"
+    # Mount your server's project files into the container
+    volumes:
+      - ./workspace:/workspace
+      # Mount your server's public SSH key so your netbook can log in without a password
+      # Replace with the actual path to your authorized_keys file
+      - /home/server/.ssh/authorized_keys:/root/.ssh/authorized_keys:ro
+    # Inject your AI provider keys securely
+    environment:
+      - OPENAI_API_KEY=your_openai_key_here
+      - ANTHROPIC_API_KEY=your_anthropic_key_here

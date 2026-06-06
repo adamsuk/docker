@@ -1,7 +1,6 @@
 services:
   booklore:
     image: booklore/booklore:latest
-    # Alternative: ghcr.io/booklore-app/booklore:latest
     container_name: booklore
     environment:
       - USER_ID=${APP_USER_ID}
@@ -12,7 +11,6 @@ services:
       - DATABASE_PASSWORD=${DB_PASSWORD}
     depends_on:
       - mariadb
-      #  condition: service_healthy
     ports:
       - "6060:6060"
     volumes:
@@ -47,3 +45,5 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"

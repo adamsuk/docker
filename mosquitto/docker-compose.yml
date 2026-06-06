@@ -10,3 +10,5 @@ services:
       - 1883:1883
     restart: unless-stopped
     network_mode: host
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"

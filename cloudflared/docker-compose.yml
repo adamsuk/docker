@@ -9,10 +9,5 @@ services:
       - ./tunnel:/etc/cloudflared
     restart: unless-stopped
     network_mode: host
-    #networks:
-    #  - cloudflared
-
-#networks:
-#  cloudflared:
-#    name: cloudflared
-#    # external: true
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"

@@ -11,25 +11,21 @@ services:
       - URL=sradams.co.uk
       - VALIDATION=dns
       - SUBDOMAINS=homeassistant
-      #- CERTPROVIDER= #optional
       - DNSPLUGIN=cloudflare
-      #- PROPAGATION= #optional
-      #- DUCKDNSTOKEN= #optional
       - EMAIL=me@sradams.co.uk
       - ONLY_SUBDOMAINS=true
-      #- EXTRA_DOMAINS= #optional
-      #- STAGING=false #optional
-      #- MAXMINDDB_LICENSE_KEY= #optional
     volumes:
       - ./config:/config
     ports:
       - 443:443
-      - 80:80 #optional
+      - 80:80
     restart: unless-stopped
     networks:
       - proxy
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
 
 networks:
   proxy:
