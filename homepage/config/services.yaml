@@ -3,26 +3,44 @@
         href: http://192.168.86.250:8089
         icon: https://openwebui.com/favicon.png
         description: AI Chat Interface
+        widget:
+          type: http
+          url: http://192.168.86.250:8089
     - Home Assistant:
         href: http://192.168.86.250:8123
         icon: home-assistant
         description: Smart Home
+        widget:
+          type: http
+          url: http://192.168.86.250:8123
     - Portainer:
         href: http://192.168.86.250:9000
         icon: portainer
         description: Container Management
+        widget:
+          type: http
+          url: http://192.168.86.250:9000
     - Nextcloud:
         href: https://192.168.86.250:8200
         icon: nextcloud
         description: Cloud Storage
+        widget:
+          type: http
+          url: https://192.168.86.250:8200
     - ESPHome:
         href: http://192.168.86.250:6052
         icon: esphome
         description: IoT Devices
+        widget:
+          type: http
+          url: http://192.168.86.250:6052
     - SWAG:
         href: https://192.168.86.250
         icon: nginx
         description: Reverse Proxy
+        widget:
+          type: http
+          url: https://192.168.86.250
     - Eufy Security:
         href: http://192.168.86.250:3000
         icon: mdi-camera-wireless-outline
@@ -37,10 +55,16 @@
         href: http://192.168.86.250:32400/web
         icon: plex
         description: Movies & TV Shows
+        widget:
+          type: http
+          url: http://192.168.86.250:32400/web
     - Booklore:
         href: http://192.168.86.250:6060
         icon: booklore
         description: Ebook Library
+        widget:
+          type: http
+          url: http://192.168.86.250:6060
     - Tautulli:
         href: http://192.168.86.250:8181
         icon: tautulli
@@ -85,3 +109,7 @@
         href: http://192.168.86.250:61208
         icon: glances
         description: Live System Metrics
+        widget:
+          type: glances
+          url: http://192.168.86.250:61208
+          version: 4
