@@ -1,0 +1,12 @@
+services:
+  dashy:
+    image: lissy93/dashy:latest
+    container_name: dashy
+    ports:
+      - 3001:8080
+    volumes:
+      - ./conf.yml:/app/user-data/conf.yml
+      - ./icons:/app/user-data/icons
+    restart: unless-stopped
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"

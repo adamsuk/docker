@@ -7,6 +7,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
       - "3002:3001"
+    environment:
+      - UPTIME_KUMA_FRAME_SAMEORIGIN=false
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "node", "extra/healthcheck.js"]
