@@ -9,7 +9,7 @@ services:
     environment:
       # Setting config
       - WEBUI_URL=https://open-webui.sradams.co.uk
-      - WEBUI_SECRET_KEY=pRBzJ2UrcOIAwjiglTPzCOHPbjsGhpfIHvCFH7oZ9r3vO56PGOslq+fD
+      - WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY}
       # Note: Model provider connections & default models are managed via DB (Admin UI).
       # ConfigVar env vars (OPENAI_API_BASE_URLS, OPENAI_API_KEYS, DEFAULT_MODELS, etc.)
       # are ignored after first startup - use Admin Settings to manage connections.
@@ -32,7 +32,7 @@ services:
       - /media/server/:/media/server/:rw
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/:/usr/bin/host:ro
-    command: mcpo --config /app/config/config.json --api-key  "ToP-SeCReT"
+    command: mcpo --config /app/config/config.json --api-key  "${MCPO_API_KEY}"
     restart: unless-stopped
     deploy:
       resources:
